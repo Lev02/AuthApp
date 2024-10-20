@@ -3,6 +3,7 @@
         <Setter Property="FontFamily" Value="{DynamicResource AnonymusPro}" />
         <Setter Property="FontSize" Value="{StaticResource Normal_FontSize}" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="TextWrapping" Value="Wrap" />
     </Style>
 
     <Style BasedOn="{StaticResource DefaultTextBlockStyle}" TargetType="{x:Type TextBlock}" />

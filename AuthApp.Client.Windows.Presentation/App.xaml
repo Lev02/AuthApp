@@ -12,14 +12,17 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <!--  Base styles  -->
+                <ResourceDictionary Source="Resources/Styles/Base/CornerRadiuses.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Base/FontSizes.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Base/Margins.xaml" />
 
                 <!--  Control styles  -->
                 <ResourceDictionary Source="Resources/Styles/Controls/ButtonStyles.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Controls/PasswordBoxStyles.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Controls/TabControlStyles.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Controls/TabItemStyles.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Controls/TextBlockStyles.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Controls/TextboxStyles.xaml" />
-                <ResourceDictionary Source="Resources/Styles/Controls/PasswordBoxStyles.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Controls/WindowStyles.xaml" />
 
                 <!--  Designer mode theme (will be changed in code behind)  -->

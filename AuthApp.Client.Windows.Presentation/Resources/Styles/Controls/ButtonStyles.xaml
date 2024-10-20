@@ -32,7 +32,7 @@
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="5">
+                            CornerRadius="{StaticResource SmallCornerRadius}">
 
                             <ContentPresenter
                                 x:Name="contentPresenterMain"
@@ -51,7 +51,7 @@
                         <Border
                             x:Name="borderHoverOverlay1"
                             Background="{DynamicResource NormalOverlayBrush}"
-                            CornerRadius="5">
+                            CornerRadius="{StaticResource SmallCornerRadius}">
                             <Border.RenderTransform>
                                 <ScaleTransform CenterX="0" ScaleX="0" ScaleY="1" />
                             </Border.RenderTransform>
@@ -64,7 +64,7 @@
                         <Border
                             x:Name="borderHoverOverlay2"
                             Background="{DynamicResource NormalOverlayBrush}"
-                            CornerRadius="5">
+                            CornerRadius="{StaticResource SmallCornerRadius}">
                             <Border.RenderTransform>
                                 <ScaleTransform CenterX="0" ScaleX="0" ScaleY="1" />
                             </Border.RenderTransform>

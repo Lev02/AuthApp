@@ -8,6 +8,8 @@ using AuthApp.Client.Windows.Presentation.MVVM.UserControls.SignUp;
 using AuthApp.Client.Windows.Presentation.MVVM.UserControls.Auth;
 using AuthApp.BLL.Contracts;
 using AuthApp.Client.Windows.Presentation.Services;
+using AuthApp.Core.Contracts;
+using AuthApp.DAL.Services;
 
 namespace AuthApp.Client.Windows.Presentation
 {
@@ -33,14 +35,29 @@ namespace AuthApp.Client.Windows.Presentation
 
         private void ConfigureServices(ServiceCollection services)
         {
+            #region Services
+
+            services.AddHttpClient<IUserService, UserService>(client =>
+            {
+                client.BaseAddress = new Uri("https://petstore.swagger.io");
+            });
             services.AddSingleton<IDialogService, DialogService>();
+
+            #endregion
+
+
+            #region Register Views and ViewModels
 
             services.AddTransient<MainViewModel>();
             services.AddTransient<MainWindow>();
+
             services.AddTransient<SignUpControl>();
             services.AddTransient<SignUpViewModel>();
+
             services.AddTransient<AuthControl>();
             services.AddTransient<AuthViewModel>();
+
+            #endregion
         }
     }
 

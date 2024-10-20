@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthApp.BLL", "AuthApp.BLL\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthApp.DAL", "AuthApp.DAL\AuthApp.DAL.csproj", "{8397D894-E48E-408A-8343-B28D954162C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthApp.Core", "AuthApp.Core\AuthApp.Core.csproj", "{1CA97D1D-F6E2-4EAE-9728-28E54E9DEA7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthApp.Core", "AuthApp.Core\AuthApp.Core.csproj", "{1CA97D1D-F6E2-4EAE-9728-28E54E9DEA7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthApp.DAL.Tests", "AuthApp.DAL.Tests\AuthApp.DAL.Tests.csproj", "{DBF46769-27FF-43F1-A4DE-FEFE61F1378A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{1CA97D1D-F6E2-4EAE-9728-28E54E9DEA7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CA97D1D-F6E2-4EAE-9728-28E54E9DEA7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1CA97D1D-F6E2-4EAE-9728-28E54E9DEA7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBF46769-27FF-43F1-A4DE-FEFE61F1378A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBF46769-27FF-43F1-A4DE-FEFE61F1378A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBF46769-27FF-43F1-A4DE-FEFE61F1378A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBF46769-27FF-43F1-A4DE-FEFE61F1378A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

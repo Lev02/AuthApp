@@ -15,7 +15,7 @@
             Command="{Binding ViewModel.SignInCommand}"
             Icon="SignIN"
             Text="{DynamicResource SignIn}" />
-        <StackPanel Margin="{StaticResource Top_Mid_Margin}" Orientation="Horizontal">
+        <StackPanel Margin="{StaticResource Top_Normal_Margin}" Orientation="Horizontal">
             <TextBlock
                 VerticalAlignment="Center"
                 Foreground="{StaticResource SecondaryTextBrush}"

@@ -9,6 +9,13 @@
     <sys:Double x:Key="TinyMargin">2</sys:Double>
 
     <Thickness
+        x:Key="Normal_Margin"
+        Bottom="{StaticResource NormalMargin}"
+        Left="{StaticResource NormalMargin}"
+        Right="{StaticResource NormalMargin}"
+        Top="{StaticResource NormalMargin}" />
+
+    <Thickness
         x:Key="Top_Big_Margin"
         Bottom="0"
         Left="0"
@@ -16,7 +23,7 @@
         Top="{StaticResource BigMargin}" />
 
     <Thickness
-        x:Key="Top_Mid_Margin"
+        x:Key="Top_Normal_Margin"
         Bottom="0"
         Left="0"
         Right="0"
@@ -44,7 +51,7 @@
         Top="0" />
 
     <Thickness
-        x:Key="Left_Mid_Margin"
+        x:Key="Left_Normal_Margin"
         Bottom="0"
         Left="{StaticResource NormalMargin}"
         Right="0"
@@ -58,14 +65,14 @@
         Top="0" />
 
     <Thickness
-        x:Key="Right_Mid_Margin"
+        x:Key="Right_Normal_Margin"
         Bottom="0"
         Left="0"
         Right="{StaticResource NormalMargin}"
         Top="0" />
 
     <Thickness
-        x:Key="LeftRight_Mid_Margin"
+        x:Key="LeftRight_Normal_Margin"
         Bottom="0"
         Left="{StaticResource NormalMargin}"
         Right="{StaticResource NormalMargin}"
@@ -100,7 +107,7 @@
         Top="0" />
 
     <Thickness
-        x:Key="Bottom_Mid_Margin"
+        x:Key="Bottom_Normal_Margin"
         Bottom="{StaticResource NormalMargin}"
         Left="0"
         Right="0"

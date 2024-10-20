@@ -80,38 +80,38 @@ namespace AuthApp.Client.Windows.Presentation.MVVM.UserControls.SignUp
         public bool IsValidEmail
             => _user.IsValidEmail;
 
-        public string PhoneNumber
+        public string Phone
         {
-            get => _user.PhoneNumber;
+            get => _user.Phone;
             set
             {
-                if (_user.PhoneNumber != value)
+                if (_user.Phone != value)
                 {
-                    _user.PhoneNumber = value;
+                    _user.Phone = value;
                     OnPropertyChanged();
                 }
             }
         }
 
-        public bool IsValidPhoneNumber
-            => _user.IsValidPhoneNumber;
+        public bool IsValidPhone
+            => _user.IsValidPhone;
 
 
-        public string Login
+        public string Username
         {
-            get => _user.Login;
+            get => _user.Username;
             set
             {
-                if (_user.Login != value)
+                if (_user.Username != value)
                 {
-                    _user.Login = value;
+                    _user.Username = value;
                     OnPropertyChanged();
                 }
             }
         }
 
-        public bool IsValidLogin
-            => _user.IsValidLogin;
+        public bool IsValidUsername
+            => _user.IsValidUsername;
 
 
         public string Password

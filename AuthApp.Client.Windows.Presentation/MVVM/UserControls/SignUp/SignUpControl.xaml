@@ -20,31 +20,31 @@
             Style="{StaticResource RoundedTextBoxStyle}"
             Text="{Binding ViewModel.FirstName}" />
 
-        <TextBlock Margin="{StaticResource Top_Mid_Margin}" Text="{StaticResource LastName}" />
+        <TextBlock Margin="{StaticResource Top_Normal_Margin}" Text="{StaticResource LastName}" />
         <TextBox
             Margin="{StaticResource Top_Tiny_Margin}"
             Style="{StaticResource RoundedTextBoxStyle}"
             Text="{Binding ViewModel.LastName}" />
 
-        <TextBlock Margin="{StaticResource Top_Mid_Margin}" Text="{StaticResource Email}" />
+        <TextBlock Margin="{StaticResource Top_Normal_Margin}" Text="{StaticResource Email}" />
         <TextBox
             Margin="{StaticResource Top_Tiny_Margin}"
             Style="{StaticResource RoundedTextBoxStyle}"
             Text="{Binding ViewModel.Email}" />
 
-        <TextBlock Margin="{StaticResource Top_Mid_Margin}" Text="{StaticResource Phone}" />
+        <TextBlock Margin="{StaticResource Top_Normal_Margin}" Text="{StaticResource Phone}" />
         <TextBox
             Margin="{StaticResource Top_Tiny_Margin}"
             Style="{StaticResource RoundedTextBoxStyle}"
-            Text="{Binding ViewModel.PhoneNumber}" />
+            Text="{Binding ViewModel.Phone}" />
 
-        <TextBlock Margin="{StaticResource Top_Mid_Margin}" Text="{StaticResource Login}" />
+        <TextBlock Margin="{StaticResource Top_Normal_Margin}" Text="{StaticResource Username}" />
         <TextBox
             Margin="{StaticResource Top_Tiny_Margin}"
             Style="{StaticResource RoundedTextBoxStyle}"
-            Text="{Binding ViewModel.Login}" />
+            Text="{Binding ViewModel.Username}" />
 
-        <TextBlock Margin="{StaticResource Top_Mid_Margin}" Text="{StaticResource Password}" />
+        <TextBlock Margin="{StaticResource Top_Normal_Margin}" Text="{StaticResource Password}" />
         <customControls:CustomPasswordBox
             Margin="{StaticResource Top_Tiny_Margin}"
             Password="{Binding ViewModel.Password}"

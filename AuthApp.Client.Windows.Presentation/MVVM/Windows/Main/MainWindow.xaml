@@ -5,32 +5,42 @@
     xmlns:auth="clr-namespace:AuthApp.Client.Windows.Presentation.MVVM.UserControls.Auth"
     xmlns:customControls="clr-namespace:AuthApp.Client.Windows.Presentation.Resources.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:devInfo="clr-namespace:AuthApp.Client.Windows.Presentation.MVVM.UserControls.DevInfo"
     xmlns:local="clr-namespace:AuthApp.Client.Windows.Presentation.MVVM.Windows.Main"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:userInfo="clr-namespace:AuthApp.Client.Windows.Presentation.MVVM.UserControls.UserInfo"
     Title="AuthApp"
     Width="800"
     Height="450"
     Background="{DynamicResource PrimaryBackgroundBrush}"
     mc:Ignorable="d">
-    <Grid Margin="20">
+    <Grid Margin="{StaticResource Normal_Margin}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
         </Grid.ColumnDefinitions>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+        <Border CornerRadius="5">
+            <TabControl>
+                <customControls:IconTabItem Icon="Account" Text="UserInfo">
+                    <userInfo:UserInfoControl />
+                </customControls:IconTabItem>
+
+                <customControls:IconTabItem Icon="CodeBrackets" Text="DevInfo">
+                    <devInfo:DevInfoControl />
+                </customControls:IconTabItem>
+            </TabControl>
+        </Border>
+
 
         <Border
-            Grid.RowSpan="2"
             Grid.Column="1"
+            Margin="{StaticResource Left_Normal_Margin}"
             Padding="20"
             HorizontalAlignment="Right"
-            VerticalAlignment="Top"
+            VerticalAlignment="Stretch"
             Background="{DynamicResource LightOverlayBrush}"
-            CornerRadius="10">
+            CornerRadius="{StaticResource NormalCornerRadius}">
             <auth:AuthControl />
         </Border>
 

@@ -18,7 +18,7 @@
     <sys:String x:Key="LastName">Last name</sys:String>
     <sys:String x:Key="Email">Email</sys:String>
     <sys:String x:Key="Phone">Phone</sys:String>
-    <sys:String x:Key="Login">Login</sys:String>
+    <sys:String x:Key="Username">Username</sys:String>
     <sys:String x:Key="Password">Password</sys:String>
     <sys:String x:Key="EmptyUserData">This section will display user information once you'll sign in</sys:String>
 

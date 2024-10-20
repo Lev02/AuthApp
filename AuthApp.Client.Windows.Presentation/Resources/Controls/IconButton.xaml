@@ -21,22 +21,15 @@
             Foreground="{DynamicResource PrimaryTextBrush}"
             Kind="{Binding Icon, RelativeSource={RelativeSource AncestorType={x:Type local:IconButton}}}"
             Visibility="{Binding Icon, Converter={StaticResource ObjectToVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type local:IconButton}}}" />
-        <!--
-<TextBlock
-    Grid.Column="0"
-    FontFamily="pack://application:,,,/AuthApp.Client.Windows.Presentation;component/Resources/Fonts/MaterialDesignIcons/#Material Symbols Outlined 28pt"
-    Text="HELLO " />
-        -->
 
         <TextBlock
             Grid.Column="1"
             VerticalAlignment="Center"
-            FontFamily="{StaticResource AnonymusPro}"
             Text="{Binding Text, FallbackValue='Some button text', RelativeSource={RelativeSource AncestorType={x:Type local:IconButton}}}"
             Visibility="{Binding Text, Converter={StaticResource ObjectToVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type local:IconButton}}}">
             <TextBlock.Style>
                 <Style BasedOn="{StaticResource DefaultTextBlockStyle}" TargetType="{x:Type TextBlock}">
-                    <Setter Property="Margin" Value="{StaticResource Left_Mid_Margin}" />
+                    <Setter Property="Margin" Value="{StaticResource Left_Normal_Margin}" />
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding Icon, RelativeSource={RelativeSource AncestorType={x:Type local:IconButton}}}" Value="{x:Null}">
                             <Setter Property="Margin" Value="0" />
