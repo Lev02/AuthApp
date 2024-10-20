@@ -29,6 +29,16 @@ namespace AuthApp.Core.Models
         public bool IsValidPhoneNumber
             => Regex.IsMatch(PhoneNumber, @"^\+?\d{10,15}$");
 
+
+        public string Login { get; set; } = string.Empty;
+        public bool IsValidLogin
+          => !string.IsNullOrWhiteSpace(Login);
+
+
+        public string Password { get; set; } = string.Empty;
+        public bool IsValidPassword
+          => !string.IsNullOrWhiteSpace(Password);
+
         #endregion
     }
 }

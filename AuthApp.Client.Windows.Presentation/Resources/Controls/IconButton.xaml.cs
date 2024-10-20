@@ -13,7 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using AuthApp.Core.Enums;
-using MaterialDesign.Icons;
+using Material.Icons;
+using Material.Icons.WPF;
 
 namespace AuthApp.Client.Windows.Presentation.Resources.Controls
 {
@@ -35,7 +36,7 @@ namespace AuthApp.Client.Windows.Presentation.Resources.Controls
             name: nameof(Text), 
             propertyType: typeof(string), 
             ownerType: typeof(IconButton), 
-            typeMetadata: new PropertyMetadata(defaultValue: "Some"));
+            typeMetadata: new PropertyMetadata(defaultValue: null));
 
         public string? Text
         {
@@ -47,14 +48,14 @@ namespace AuthApp.Client.Windows.Presentation.Resources.Controls
         #region Icon Dependency Property
         public static readonly DependencyProperty IconProperty = DependencyProperty.Register(
             name: nameof(Icon), 
-            propertyType: typeof(MaterialIcon?), 
+            propertyType: typeof(MaterialIconKind?), 
             ownerType: typeof(IconButton), 
             typeMetadata: new PropertyMetadata(defaultValue: null)
         );
 
-        public MaterialIcon? Icon
+        public MaterialIconKind? Icon
         {
-            get { return (MaterialIcon?)GetValue(IconProperty); }
+            get { return (MaterialIconKind?)GetValue(IconProperty); }
             set { SetValue(IconProperty, value); }
         }
         #endregion

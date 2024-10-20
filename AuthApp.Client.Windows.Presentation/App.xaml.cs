@@ -6,6 +6,8 @@ using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
 using AuthApp.Client.Windows.Presentation.MVVM.UserControls.SignUp;
 using AuthApp.Client.Windows.Presentation.MVVM.UserControls.Auth;
+using AuthApp.BLL.Contracts;
+using AuthApp.Client.Windows.Presentation.Services;
 
 namespace AuthApp.Client.Windows.Presentation
 {
@@ -15,7 +17,7 @@ namespace AuthApp.Client.Windows.Presentation
     public partial class App : Application
     {
         private IServiceProvider? _serviceProvider;
-        public static ViewModelLocator? ViewModelLocator { get; private set; }
+        public ViewModelLocator? ViewModelLocator { get; private set; }
 
         protected override void OnStartup(StartupEventArgs e)
         {
@@ -31,12 +33,12 @@ namespace AuthApp.Client.Windows.Presentation
 
         private void ConfigureServices(ServiceCollection services)
         {
+            services.AddSingleton<IDialogService, DialogService>();
+
             services.AddTransient<MainViewModel>();
             services.AddTransient<MainWindow>();
-
             services.AddTransient<SignUpControl>();
             services.AddTransient<SignUpViewModel>();
-
             services.AddTransient<AuthControl>();
             services.AddTransient<AuthViewModel>();
         }

@@ -9,9 +9,19 @@
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Stretch" />
         <Setter Property="Padding" Value="10,5" />
-
         <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect
+                    BlurRadius="8"
+                    Direction="315"
+                    Opacity="1"
+                    ShadowDepth="0"
+                    Color="{DynamicResource PrimaryBackgroundColor}" />
+            </Setter.Value>
+        </Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -39,8 +49,21 @@
                         </Border>
 
                         <Border
-                            x:Name="borderHoverOverlay"
-                            Background="{DynamicResource ButtonHoverBrush}"
+                            x:Name="borderHoverOverlay1"
+                            Background="{DynamicResource NormalOverlayBrush}"
+                            CornerRadius="5">
+                            <Border.RenderTransform>
+                                <ScaleTransform CenterX="0" ScaleX="0" ScaleY="1" />
+                            </Border.RenderTransform>
+
+                            <Border.RenderTransformOrigin>
+                                <Point X="0.5" Y="0.5" />
+                            </Border.RenderTransformOrigin>
+                        </Border>
+
+                        <Border
+                            x:Name="borderHoverOverlay2"
+                            Background="{DynamicResource NormalOverlayBrush}"
                             CornerRadius="5">
                             <Border.RenderTransform>
                                 <ScaleTransform CenterX="0" ScaleX="0" ScaleY="1" />
@@ -53,7 +76,34 @@
                     </Grid>
 
                     <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <!--  Enter hover overlay animation  -->
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="borderHoverOverlay1"
+                                            Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
+                                            To="0"
+                                            Duration="0:0:0.03" />
 
+                                        <DoubleAnimation
+                                            BeginTime="0:0:0.03"
+                                            Storyboard.TargetName="borderHoverOverlay1"
+                                            Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
+                                            To="1"
+                                            Duration="0:0:0.10" />
+
+                                        <DoubleAnimation
+                                            BeginTime="0:0:0.20"
+                                            Storyboard.TargetName="borderHoverOverlay1"
+                                            Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
+                                            To="0"
+                                            Duration="0:0:0.25" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                        </Trigger>
 
                         <Trigger Property="IsMouseOver" Value="True">
                             <Trigger.EnterActions>
@@ -61,7 +111,7 @@
                                     <Storyboard>
                                         <!--  Enter hover overlay animation  -->
                                         <DoubleAnimation
-                                            Storyboard.TargetName="borderHoverOverlay"
+                                            Storyboard.TargetName="borderHoverOverlay2"
                                             Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
                                             To="1"
                                             Duration="0:0:0.15" />
@@ -70,23 +120,27 @@
                                         <DoubleAnimation
                                             Storyboard.TargetName="contentPresenterMain"
                                             Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
-                                            To="1.07"
+                                            To="1.05"
                                             Duration="0:0:0.15" />
 
                                         <DoubleAnimation
                                             Storyboard.TargetName="contentPresenterMain"
                                             Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
-                                            To="1.07"
+                                            To="1.05"
                                             Duration="0:0:0.15" />
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.EnterActions>
                             <Trigger.ExitActions>
+
+
                                 <BeginStoryboard>
                                     <Storyboard>
                                         <!--  Exit hover overlay animation  -->
+
+
                                         <DoubleAnimation
-                                            Storyboard.TargetName="borderHoverOverlay"
+                                            Storyboard.TargetName="borderHoverOverlay2"
                                             Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
                                             To="0"
                                             Duration="0:0:0.15" />
@@ -120,7 +174,9 @@
         BasedOn="{StaticResource PrimaryButtonStyle}"
         TargetType="{x:Type Button}">
         <Setter Property="Padding" Value="8,0" />
+        <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryButtonBrush}" />
     </Style>
 
     <Style
@@ -128,5 +184,6 @@
         BasedOn="{StaticResource PrimaryButtonStyle}"
         TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{DynamicResource SecondaryBackgroundBrush}" />
+        <Setter Property="FontWeight" Value="Bold" />
     </Style>
 </ResourceDictionary>

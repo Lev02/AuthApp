@@ -6,10 +6,13 @@
     <Color x:Key="PrimaryButtonColor">#FF007ACC</Color>
     <Color x:Key="PrimaryButtonBorderColor">#FFB0D4E8</Color>
     <Color x:Key="SecondaryButtonColor">#FF5A5A5A</Color>
-    <Color x:Key="ButtonHoverColor">#20000000</Color>
+
 
     <Color x:Key="PrimaryTextColor">#FF000000</Color>
     <Color x:Key="SecondaryTextColor">#FF707070</Color>
+
+    <Color x:Key="LightOverlayColor">#10000000</Color>
+    <Color x:Key="NormalOverlayColor">#20000000</Color>
 
     <!--  Light Theme Brushes  -->
     <SolidColorBrush x:Key="PrimaryBackgroundBrush" Color="{StaticResource PrimaryBackgroundColor}" />
@@ -20,4 +23,7 @@
 
     <SolidColorBrush x:Key="PrimaryTextBrush" Color="{StaticResource PrimaryTextColor}" />
     <SolidColorBrush x:Key="SecondaryTextBrush" Color="{StaticResource SecondaryTextColor}" />
+
+    <SolidColorBrush x:Key="LightOverlayBrush" Color="{StaticResource LightOverlayColor}" />
+    <SolidColorBrush x:Key="NormalOverlayBrush" Color="{StaticResource NormalOverlayColor}" />
 </ResourceDictionary>

@@ -3,10 +3,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:sys="clr-namespace:System;assembly=mscorlib">
     <!--  Auth  -->
-    <sys:String x:Key="Login">Log in</sys:String>
+    <sys:String x:Key="SignIn">Sign in</sys:String>
     <sys:String x:Key="NoAccount">No account?</sys:String>
     <sys:String x:Key="SignUp">Sign up</sys:String>
-    <sys:String x:Key="Logout">Log out</sys:String>
+    <sys:String x:Key="SignOut">Sign out</sys:String>
 
     <!--  Dev data  -->
     <sys:String x:Key="DevFullName">Lev Aksyonov</sys:String>
@@ -18,6 +18,8 @@
     <sys:String x:Key="LastName">Last name</sys:String>
     <sys:String x:Key="Email">Email</sys:String>
     <sys:String x:Key="Phone">Phone</sys:String>
+    <sys:String x:Key="Login">Login</sys:String>
+    <sys:String x:Key="Password">Password</sys:String>
     <sys:String x:Key="EmptyUserData">This section will display user information once you'll sign in</sys:String>
 
 </ResourceDictionary>

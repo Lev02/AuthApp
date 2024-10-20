@@ -3,15 +3,56 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:app="clr-namespace:AuthApp.Client.Windows.Presentation"
+    xmlns:customControls="clr-namespace:AuthApp.Client.Windows.Presentation.Resources.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:AuthApp.Client.Windows.Presentation.MVVM.UserControls.SignUp"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:mvvm="clr-namespace:AuthApp.Client.Windows.Presentation.MVVM"
-    d:DesignHeight="450"
-    d:DesignWidth="800"
-    DataContext="{Binding Source={DynamicResource ViewModelLocator}, Path=Sign}"
+    d:DataContext="{d:DesignInstance local:SignUpControl,
+                                     IsDesignTimeCreatable=False}"
     mc:Ignorable="d">
 
 
-    <Grid />
+    <StackPanel>
+        <TextBlock Text="{StaticResource FirstName}" />
+        <TextBox
+            Margin="{StaticResource Top_Tiny_Margin}"
+            Style="{StaticResource RoundedTextBoxStyle}"
+            Text="{Binding ViewModel.FirstName}" />
+
+        <TextBlock Margin="{StaticResource Top_Mid_Margin}" Text="{StaticResource LastName}" />
+        <TextBox
+            Margin="{StaticResource Top_Tiny_Margin}"
+            Style="{StaticResource RoundedTextBoxStyle}"
+            Text="{Binding ViewModel.LastName}" />
+
+        <TextBlock Margin="{StaticResource Top_Mid_Margin}" Text="{StaticResource Email}" />
+        <TextBox
+            Margin="{StaticResource Top_Tiny_Margin}"
+            Style="{StaticResource RoundedTextBoxStyle}"
+            Text="{Binding ViewModel.Email}" />
+
+        <TextBlock Margin="{StaticResource Top_Mid_Margin}" Text="{StaticResource Phone}" />
+        <TextBox
+            Margin="{StaticResource Top_Tiny_Margin}"
+            Style="{StaticResource RoundedTextBoxStyle}"
+            Text="{Binding ViewModel.PhoneNumber}" />
+
+        <TextBlock Margin="{StaticResource Top_Mid_Margin}" Text="{StaticResource Login}" />
+        <TextBox
+            Margin="{StaticResource Top_Tiny_Margin}"
+            Style="{StaticResource RoundedTextBoxStyle}"
+            Text="{Binding ViewModel.Login}" />
+
+        <TextBlock Margin="{StaticResource Top_Mid_Margin}" Text="{StaticResource Password}" />
+        <customControls:CustomPasswordBox
+            Margin="{StaticResource Top_Tiny_Margin}"
+            Password="{Binding ViewModel.Password}"
+            Style="{StaticResource PasswordBoxWithToggleStyle}" />
+
+        <customControls:IconButton
+            Margin="{StaticResource Top_Big_Margin}"
+            Icon="AccountPlus"
+            Text="{StaticResource SignUp}" />
+    </StackPanel>
 </UserControl>

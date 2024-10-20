@@ -22,7 +22,10 @@ namespace AuthApp.Client.Windows.Presentation.MVVM.UserControls.SignUp
     {
         public SignUpControl()
         {
+            DataContext = ViewModelLocator.SignUpViewModel;
             InitializeComponent();
         }
+
+        public SignUpViewModel? ViewModel { get; }
     }
 }

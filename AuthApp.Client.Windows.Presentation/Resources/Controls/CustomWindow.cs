@@ -123,7 +123,14 @@ namespace AuthApp.Client.Windows.Presentation.Resources.Controls
             }
             else
             {
-                this.WindowState = WindowState.Maximized;
+                // Get the working area (without taskbars)
+                var workingArea = SystemParameters.WorkArea; 
+
+                this.WindowState = WindowState.Normal;
+                this.Left = workingArea.Left;
+                this.Top = workingArea.Top;
+                this.Width = workingArea.Width;
+                this.Height = workingArea.Height;
             }
         }
 

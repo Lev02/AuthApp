@@ -5,10 +5,13 @@
 
     <Color x:Key="PrimaryButtonColor">#FF007ACC</Color>
     <Color x:Key="SecondaryButtonColor">#FF5A5A5A</Color>
-    <Color x:Key="ButtonHoverColor">#20FFFFFF</Color>
 
     <Color x:Key="PrimaryTextColor">#FFFFFFFF</Color>
     <Color x:Key="SecondaryTextColor">#FFB0B0B0</Color>
+
+    <Color x:Key="LightOverlayColor">#10FFFFFF</Color>
+
+    <Color x:Key="NormalOverlayColor">#20FFFFFF</Color>
 
     <!--  Dark Theme Brushes  -->
     <SolidColorBrush x:Key="PrimaryBackgroundBrush" Color="{StaticResource PrimaryBackgroundColor}" />
@@ -16,9 +19,10 @@
 
     <SolidColorBrush x:Key="PrimaryButtonBrush" Color="{StaticResource PrimaryButtonColor}" />
     <SolidColorBrush x:Key="SecondaryButtonBrush" Color="{StaticResource SecondaryButtonColor}" />
-    <SolidColorBrush x:Key="ButtonHoverBrush" Color="{StaticResource ButtonHoverColor}" />
-
 
     <SolidColorBrush x:Key="PrimaryTextBrush" Color="{StaticResource PrimaryTextColor}" />
     <SolidColorBrush x:Key="SecondaryTextBrush" Color="{StaticResource SecondaryTextColor}" />
+
+    <SolidColorBrush x:Key="LightOverlayBrush" Color="{StaticResource LightOverlayColor}" />
+    <SolidColorBrush x:Key="NormalOverlayBrush" Color="{StaticResource NormalOverlayColor}" />
 </ResourceDictionary>

@@ -13,20 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AuthApp.Client.Windows.Presentation.MVVM.UserControls.Auth
+namespace AuthApp.Client.Windows.Presentation.MVVM.UserControls.DevInfo
 {
     /// <summary>
-    /// Interaction logic for AuthControl.xaml
+    /// Interaction logic for DevInfoControl.xaml
     /// </summary>
-    public partial class AuthControl : UserControl
+    public partial class DevInfoControl : UserControl
     {
-        public AuthControl()
+        public DevInfoControl()
         {
-            ViewModel = ViewModelLocator.AuthViewModel;
-            DataContext = this;
             InitializeComponent();
         }
-
-        public AuthViewModel? ViewModel { get; }
     }
 }

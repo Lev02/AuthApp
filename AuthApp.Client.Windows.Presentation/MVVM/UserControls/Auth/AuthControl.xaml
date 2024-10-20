@@ -5,21 +5,32 @@
     xmlns:controls="clr-namespace:AuthApp.Client.Windows.Presentation.Resources.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:AuthApp.Client.Windows.Presentation.MVVM.UserControls.Auth"
+    xmlns:materialIcons="clr-namespace:Material.Icons;assembly=Material.Icons"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:mi="clr-namespace:MaterialDesign.Icons;assembly=MaterialDesign.Icons"
+    d:DataContext="{d:DesignInstance local:AuthControl,
+                                     IsDesignTimeCreatable=False}"
     mc:Ignorable="d">
     <StackPanel>
         <controls:IconButton
-            Appearance="Secondary"
-            FontWeight="Bold"
-            Text="{DynamicResource Logout}" />
-        <controls:IconButton FontWeight="Bold" Text="{DynamicResource Login}" />
+            Command="{Binding ViewModel.SignInCommand}"
+            Icon="SignIN"
+            Text="{DynamicResource SignIn}" />
         <StackPanel Margin="{StaticResource Top_Mid_Margin}" Orientation="Horizontal">
             <TextBlock
                 VerticalAlignment="Center"
                 Foreground="{StaticResource SecondaryTextBrush}"
                 Text="{StaticResource NoAccount}" />
-            <controls:IconButton Appearance="Transparent" Text="{DynamicResource SignUp}" />
+            <controls:IconButton
+                Appearance="Transparent"
+                Command="{Binding ViewModel.SignUpCommand}"
+                Text="{DynamicResource SignUp}" />
         </StackPanel>
+
+
+        <controls:IconButton
+            Appearance="Secondary"
+            Command="{Binding ViewModel.SignOutCommand}"
+            Icon="{x:Static materialIcons:MaterialIconKind.SignOut}"
+            Text="{DynamicResource SignOut}" />
     </StackPanel>
 </UserControl>

@@ -6,12 +6,20 @@
         <!--  Remove default chrome and make the window transparent  -->
         <Setter Property="WindowStyle" Value="None" />
         <Setter Property="AllowsTransparency" Value="True" />
+        <Setter Property="Width" Value="auto" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+
+        <Setter Property="Height" Value="auto" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="ResizeMode" Value="CanResizeWithGrip" />
+        <Setter Property="ResizeMode" Value="CanResize" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type customControls:CustomWindow}">
-                    <Border CornerRadius="5" DataContext="{Binding RelativeSource={RelativeSource AncestorType={x:Type customControls:CustomWindow}}}">
+                    <Border
+                        Background="{DynamicResource PrimaryBackgroundBrush}"
+                        CornerRadius="5"
+                        DataContext="{Binding RelativeSource={RelativeSource AncestorType={x:Type customControls:CustomWindow}}}">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="auto" />
@@ -38,26 +46,46 @@
                                     <customControls:IconButton
                                         x:Name="btnMinimize"
                                         Appearance="Secondary"
-                                        DockPanel.Dock="Right"
-                                        Text="_" />
+                                        Icon="WindowMinimize">
+                                        <customControls:IconButton.Style>
+                                            <Style TargetType="{x:Type customControls:IconButton}">
+                                                <Setter Property="Visibility" Value="Visible" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsMinimizeButtonVisible, RelativeSource={RelativeSource TemplatedParent}}" Value="False">
+                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </customControls:IconButton.Style>
+                                    </customControls:IconButton>
 
                                     <!--  Maximize/Restore Button  -->
                                     <customControls:IconButton
                                         x:Name="btnMaximize"
                                         Appearance="Secondary"
-                                        DockPanel.Dock="Right"
-                                        Text="□" />
+                                        Icon="WindowMaximize">
+                                        <customControls:IconButton.Style>
+                                            <Style TargetType="{x:Type customControls:IconButton}">
+                                                <Setter Property="Visibility" Value="Visible" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsMaximizeButtonVisible, RelativeSource={RelativeSource TemplatedParent}}" Value="False">
+                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </customControls:IconButton.Style>
+                                    </customControls:IconButton>
 
                                     <!--  Close Button  -->
                                     <customControls:IconButton
                                         x:Name="btnClose"
                                         Appearance="Secondary"
                                         DockPanel.Dock="Right"
-                                        Text="X" />
+                                        Icon="WindowClose" />
                                 </StackPanel>
                             </Grid>
 
-                            <Grid Grid.Row="1" Background="{DynamicResource PrimaryBackgroundBrush}">
+                            <Grid Grid.Row="1" Margin="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Padding}">
                                 <ContentPresenter Content="{Binding Content, RelativeSource={RelativeSource AncestorType={x:Type customControls:CustomWindow}}}" />
                             </Grid>
                         </Grid>

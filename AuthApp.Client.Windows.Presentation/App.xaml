@@ -6,6 +6,7 @@
     xmlns:converters="clr-namespace:AuthApp.Client.Windows.Presentation.Resources.Converters"
     xmlns:customControls="clr-namespace:AuthApp.Client.Windows.Presentation.Resources.Controls"
     xmlns:local="clr-namespace:AuthApp.Client.Windows.Presentation"
+    xmlns:materialIcons="clr-namespace:Material.Icons.WPF;assembly=Material.Icons.WPF"
     xmlns:mvvm="clr-namespace:AuthApp.Client.Windows.Presentation.MVVM">
     <Application.Resources>
         <ResourceDictionary>
@@ -17,6 +18,8 @@
                 <!--  Control styles  -->
                 <ResourceDictionary Source="Resources/Styles/Controls/ButtonStyles.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Controls/TextBlockStyles.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Controls/TextboxStyles.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Controls/PasswordBoxStyles.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Controls/WindowStyles.xaml" />
 
                 <!--  Designer mode theme (will be changed in code behind)  -->
@@ -38,7 +41,6 @@
                 pack://application:,,,/AuthApp.Client.Windows.Presentation;component/Resources/Fonts/AnonymousPro/#Anonymous Pro
             </FontFamily>
 
-            <mvvm:ViewModelLocator x:Key="ViewModelLocator" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -96,6 +96,40 @@ namespace AuthApp.Client.Windows.Presentation.MVVM.UserControls.SignUp
         public bool IsValidPhoneNumber
             => _user.IsValidPhoneNumber;
 
+
+        public string Login
+        {
+            get => _user.Login;
+            set
+            {
+                if (_user.Login != value)
+                {
+                    _user.Login = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public bool IsValidLogin
+            => _user.IsValidLogin;
+
+
+        public string Password
+        {
+            get => _user.Password;
+            set
+            {
+                if (_user.Password != value)
+                {
+                    _user.Password = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public bool IsValidPassword
+            => _user.IsValidPassword;
+
         #endregion
     }
 }

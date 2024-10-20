@@ -5,8 +5,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:enums="clr-namespace:AuthApp.Core.Enums;assembly=AuthApp.Core"
     xmlns:local="clr-namespace:AuthApp.Client.Windows.Presentation.Resources.Controls"
+    xmlns:materialIcons="clr-namespace:Material.Icons;assembly=Material.Icons"
+    xmlns:materialIconsWPF="clr-namespace:Material.Icons.WPF;assembly=Material.Icons.WPF"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:mi="clr-namespace:MaterialDesign.Icons;assembly=MaterialDesign.Icons"
     x:Name="btnMain"
     mc:Ignorable="d">
     <Grid>
@@ -15,6 +16,11 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
+        <materialIconsWPF:MaterialIcon
+            Height="{StaticResource Normal_FontSize}"
+            Foreground="{DynamicResource PrimaryTextBrush}"
+            Kind="{Binding Icon, RelativeSource={RelativeSource AncestorType={x:Type local:IconButton}}}"
+            Visibility="{Binding Icon, Converter={StaticResource ObjectToVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type local:IconButton}}}" />
         <!--
 <TextBlock
     Grid.Column="0"
@@ -26,6 +32,18 @@
             Grid.Column="1"
             VerticalAlignment="Center"
             FontFamily="{StaticResource AnonymusPro}"
-            Text="{Binding Text, FallbackValue='Some button text', RelativeSource={RelativeSource AncestorType={x:Type local:IconButton}}}" />
+            Text="{Binding Text, FallbackValue='Some button text', RelativeSource={RelativeSource AncestorType={x:Type local:IconButton}}}"
+            Visibility="{Binding Text, Converter={StaticResource ObjectToVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type local:IconButton}}}">
+            <TextBlock.Style>
+                <Style BasedOn="{StaticResource DefaultTextBlockStyle}" TargetType="{x:Type TextBlock}">
+                    <Setter Property="Margin" Value="{StaticResource Left_Mid_Margin}" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Icon, RelativeSource={RelativeSource AncestorType={x:Type local:IconButton}}}" Value="{x:Null}">
+                            <Setter Property="Margin" Value="0" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
     </Grid>
 </Button>
