@@ -1,0 +1,25 @@
+﻿<UserControl
+    x:Class="AuthApp.Client.Windows.Presentation.MVVM.UserControls.Auth.AuthControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:AuthApp.Client.Windows.Presentation.Resources.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:AuthApp.Client.Windows.Presentation.MVVM.UserControls.Auth"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mi="clr-namespace:MaterialDesign.Icons;assembly=MaterialDesign.Icons"
+    mc:Ignorable="d">
+    <StackPanel>
+        <controls:IconButton
+            Appearance="Secondary"
+            FontWeight="Bold"
+            Text="{DynamicResource Logout}" />
+        <controls:IconButton FontWeight="Bold" Text="{DynamicResource Login}" />
+        <StackPanel Margin="{StaticResource Top_Mid_Margin}" Orientation="Horizontal">
+            <TextBlock
+                VerticalAlignment="Center"
+                Foreground="{StaticResource SecondaryTextBrush}"
+                Text="{StaticResource NoAccount}" />
+            <controls:IconButton Appearance="Transparent" Text="{DynamicResource SignUp}" />
+        </StackPanel>
+    </StackPanel>
+</UserControl>

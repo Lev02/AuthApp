@@ -1,0 +1,115 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <sys:Double x:Key="BigMargin">16</sys:Double>
+    <sys:Double x:Key="NormalMargin">8</sys:Double>
+    <sys:Double x:Key="SmallMargin">4</sys:Double>
+    <sys:Double x:Key="TinyMargin">2</sys:Double>
+
+    <Thickness
+        x:Key="Top_Big_Margin"
+        Bottom="0"
+        Left="0"
+        Right="0"
+        Top="{StaticResource BigMargin}" />
+
+    <Thickness
+        x:Key="Top_Mid_Margin"
+        Bottom="0"
+        Left="0"
+        Right="0"
+        Top="{StaticResource NormalMargin}" />
+
+    <Thickness
+        x:Key="Top_Small_Margin"
+        Bottom="0"
+        Left="0"
+        Right="0"
+        Top="{StaticResource SmallMargin}" />
+
+    <Thickness
+        x:Key="Top_Tiny_Margin"
+        Bottom="0"
+        Left="0"
+        Right="0"
+        Top="{StaticResource TinyMargin}" />
+
+    <Thickness
+        x:Key="Left_Tiny_Margin"
+        Bottom="0"
+        Left="{StaticResource TinyMargin}"
+        Right="0"
+        Top="0" />
+
+    <Thickness
+        x:Key="Left_Mid_Margin"
+        Bottom="0"
+        Left="{StaticResource NormalMargin}"
+        Right="0"
+        Top="0" />
+
+    <Thickness
+        x:Key="Left_Big_Margin"
+        Bottom="0"
+        Left="{StaticResource BigMargin}"
+        Right="0"
+        Top="0" />
+
+    <Thickness
+        x:Key="Right_Mid_Margin"
+        Bottom="0"
+        Left="0"
+        Right="{StaticResource NormalMargin}"
+        Top="0" />
+
+    <Thickness
+        x:Key="LeftRight_Mid_Margin"
+        Bottom="0"
+        Left="{StaticResource NormalMargin}"
+        Right="{StaticResource NormalMargin}"
+        Top="0" />
+
+    <Thickness
+        x:Key="Left_Small_Margin"
+        Bottom="0"
+        Left="{StaticResource SmallMargin}"
+        Right="0"
+        Top="0" />
+
+    <Thickness
+        x:Key="Right_Small_Margin"
+        Bottom="0"
+        Left="0"
+        Right="{StaticResource SmallMargin}"
+        Top="0" />
+
+    <Thickness
+        x:Key="Bottom_Tiny_Margin"
+        Bottom="{StaticResource TinyMargin}"
+        Left="0"
+        Right="0"
+        Top="0" />
+
+    <Thickness
+        x:Key="Bottom_Small_Margin"
+        Bottom="{StaticResource SmallMargin}"
+        Left="0"
+        Right="0"
+        Top="0" />
+
+    <Thickness
+        x:Key="Bottom_Mid_Margin"
+        Bottom="{StaticResource NormalMargin}"
+        Left="0"
+        Right="0"
+        Top="0" />
+
+    <Thickness
+        x:Key="Bottom_Big_Margin"
+        Bottom="{StaticResource BigMargin}"
+        Left="0"
+        Right="0"
+        Top="0" />
+</ResourceDictionary>

@@ -1,0 +1,56 @@
+﻿<Window
+    x:Class="AuthApp.Client.Windows.Presentation.Resources.Templates.BaseWindow.BaseWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:AuthApp.Client.Windows.Presentation.Resources.Templates.BaseWindow"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Window.Style>
+        <Style TargetType="Window">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Window">
+                        <Grid Background="White">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <Border Height="30" Background="LightGray">
+                                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                                    <Button
+                                        Width="30"
+                                        Height="30"
+                                        Background="Transparent"
+                                        BorderBrush="Transparent"
+                                        Click="Minimize_Click"
+                                        Content="_"
+                                        Foreground="Black" />
+                                    <Button
+                                        Width="30"
+                                        Height="30"
+                                        Background="Transparent"
+                                        BorderBrush="Transparent"
+                                        Click="Maximize_Click"
+                                        Content="☐"
+                                        Foreground="Black" />
+                                    <Button
+                                        Width="30"
+                                        Height="30"
+                                        Background="Transparent"
+                                        BorderBrush="Transparent"
+                                        Click="Close_Click"
+                                        Content="X"
+                                        Foreground="Black" />
+                                </StackPanel>
+                            </Border>
+                            <ContentPresenter Grid.Row="1" Content="{TemplateBinding Content}" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Style>
+</Window>

@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Fonts\AnonymousPro\AnonymousPro-Bold.ttf" />
+    <None Remove="Resources\Fonts\AnonymousPro\AnonymousPro-Regular.ttf" />
+    <None Remove="Resources\Fonts\MaterialDesignIcons\MaterialSymbolsOutlined_28pt-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="MVVM\UserControls\LangChanger\" />
+    <Folder Include="MVVM\UserControls\DevInfo\" />
+    <Folder Include="MVVM\UserControls\ThemeChanger\" />
+    <Folder Include="Resources\Icons\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
+    <PackageReference Include="MaterialDesign.Icons" Version="1.1.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AuthApp.BLL\AuthApp.BLL.csproj" />
+    <ProjectReference Include="..\AuthApp.Core\AuthApp.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Fonts\AnonymousPro\AnonymousPro-Bold.ttf" />
+    <Resource Include="Resources\Fonts\AnonymousPro\AnonymousPro-Regular.ttf" />
+    <Resource Include="Resources\Fonts\MaterialDesignIcons\MaterialSymbolsOutlined_28pt-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="AppSettings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppSettings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="AppSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>AppSettings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>
