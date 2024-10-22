@@ -33,7 +33,15 @@
         </StackPanel>
 
         <StackPanel Visibility="{Binding ViewModel.CurrentUser, Converter={StaticResource ObjectToVisibilityConverter}}">
-            <TextBlock Text="{DynamicResource FirstName}" />
+
+            <TextBlock Text="{DynamicResource ID}" />
+            <TextBox
+                Margin="{StaticResource Top_Tiny_Margin}"
+                IsReadOnly="True"
+                Style="{StaticResource RoundedTextBoxStyle}"
+                Text="{Binding ViewModel.CurrentUser.Id}" />
+
+            <TextBlock Margin="{StaticResource Top_Normal_Margin}" Text="{DynamicResource FirstName}" />
             <TextBox
                 Margin="{StaticResource Top_Tiny_Margin}"
                 IsReadOnly="True"
