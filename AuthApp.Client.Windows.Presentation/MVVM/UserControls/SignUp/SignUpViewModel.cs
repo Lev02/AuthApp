@@ -293,6 +293,7 @@ namespace AuthApp.Client.Windows.Presentation.MVVM.UserControls.SignUp
                 {
                     WeakReferenceMessenger.Default.Send(new UserSignedUpMessage(user));
                     IsSignUpFail = false;
+                    Clear();
                 }
                 else
                     IsSignUpFail = true;
@@ -303,6 +304,18 @@ namespace AuthApp.Client.Windows.Presentation.MVVM.UserControls.SignUp
 
         public bool SignUp_CanExecute
             => IsValidEmail && IsValidFirstName && IsValidLastName && IsValidPhone && IsValidUsername && IsValidPassword;
+
+        [RelayCommand]
+        public void Clear()
+        {
+            IsSignUpFail = false;
+            Username = string.Empty;
+            Password = string.Empty;
+            FirstName = string.Empty;
+            LastName = string.Empty;
+            Email = string.Empty;
+            Phone = string.Empty;
+        }
 
         #endregion
     }
