@@ -8,6 +8,7 @@
     <UseWPF>true</UseWPF>
     <PackageIcon>icon.png</PackageIcon>
     <ApplicationIcon>Resources\Icons\icon.ico</ApplicationIcon>
+    <AssemblyName>AuthApp.Client.Windows.Presentation</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -47,7 +48,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="AppSettings.Designer.cs">
+    <Compile Update="Properties\AppSettings.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
       <DependentUpon>AppSettings.settings</DependentUpon>
@@ -55,7 +56,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="AppSettings.settings">
+    <None Update="Properties\AppSettings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>AppSettings.Designer.cs</LastGenOutput>
     </None>

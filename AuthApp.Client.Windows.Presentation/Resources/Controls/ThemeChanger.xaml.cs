@@ -1,4 +1,5 @@
 ﻿using AuthApp.BLL.Contracts;
+using AuthApp.Client.Windows.Presentation.Properties;
 using AuthApp.Core.Enums;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,13 @@ namespace AuthApp.Client.Windows.Presentation.Resources.Controls
 
             InitializeComponent();
             PreviewMouseLeftButtonDown += ThemeChanger_MouseLeftButtonDown;
+            Loaded += ThemeChanger_Loaded;
+        }
+
+        private async void ThemeChanger_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (CurrentThemeType == ThemeType.Light)
+                await ChangeThemeAsync(ThemeType.Light);
         }
 
         #region CurrentThemeType Dependency property
@@ -112,6 +120,7 @@ namespace AuthApp.Client.Windows.Presentation.Resources.Controls
             await Task.Delay(changeThemeAnimationDuration);
             ApplyNewTheme(oldTheme, newTheme);
             AppSettings.Default.Theme = themeType.ToString();
+            AppSettings.Default.Save();
             CurrentThemeType = themeType;
         }
 

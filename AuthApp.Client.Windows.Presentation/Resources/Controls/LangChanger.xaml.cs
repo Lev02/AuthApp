@@ -1,4 +1,5 @@
 ﻿using AuthApp.BLL.Contracts;
+using AuthApp.Client.Windows.Presentation.Properties;
 using AuthApp.Core.Enums;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,13 @@ namespace AuthApp.Client.Windows.Presentation.Resources.Controls
 
             InitializeComponent();
             PreviewMouseLeftButtonDown += LangChanger_MouseLeftButtonDown;
+            Loaded += LangChanger_Loaded;
+        }
+
+        private void LangChanger_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (CurrentLangShortName != LangShortName.en)
+                ChangeLang(LangShortName.ru);
         }
 
         #region CurrentLangShortName Dependency property
@@ -83,6 +91,7 @@ namespace AuthApp.Client.Windows.Presentation.Resources.Controls
 
             ApplyNewLang(oldLang, newLang);
             AppSettings.Default.Lang = langShortName.ToString();
+            AppSettings.Default.Save();
             CurrentLangShortName = langShortName;
         }
 
