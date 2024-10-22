@@ -9,9 +9,9 @@ namespace AuthApp.Core.Contracts
 {
     public interface IUserService
     {
-        Task<bool> RegisterUserAsync(User user);
+        Task<bool> RegisterUserAsync(User user, bool loginAfterwards);
         Task<bool> LoginAsync(string username, string password);
         Task<bool> LogoutAsync();
-        Task<User> GetUserByLoginAsync(string username);
+        Task<User?> GetUserByLoginAsync(string username);
     }
 }

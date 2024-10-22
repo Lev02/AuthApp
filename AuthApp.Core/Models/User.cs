@@ -16,9 +16,9 @@ namespace AuthApp.Core.Models
 
         public string Username { get; set; } = string.Empty;
         [JsonIgnore]
-        public bool IsValidUsername
-          => !string.IsNullOrWhiteSpace(Username);
-
+        public bool IsValidUsername 
+            => !string.IsNullOrWhiteSpace(Username);
+          
         public string FirstName { get; set; } = string.Empty;
 
         [JsonIgnore]
@@ -38,13 +38,13 @@ namespace AuthApp.Core.Models
         public string Password { get; set; } = string.Empty;
         [JsonIgnore]
         public bool IsValidPassword
-          => !string.IsNullOrWhiteSpace(Password);
+          => !string.IsNullOrWhiteSpace(Password)
+                && Password.Length > 4;
 
         public string Phone { get; set; } = string.Empty;
         [JsonIgnore]
         public bool IsValidPhone
             => Regex.IsMatch(Phone, @"^\+?\d{10,15}$");
-
 
         public int UserStatus { get; set; }
 

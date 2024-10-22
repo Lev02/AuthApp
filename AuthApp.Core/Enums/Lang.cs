@@ -11,18 +11,4 @@ namespace AuthApp.Core.Enums
         ru,
         en
     }
-
-    public enum LangStrings
-    {
-        PrimaryBackgroundColor,
-        SecondaryBackgroundColor,
-
-        PrimaryButtonColor,
-        PrimaryButtonBorderColor,
-        SecondaryButtonColor,
-        SecondaryButtonBorderColor,
-
-        PrimaryTextColor,
-        SecondaryTextColor
-    }
 }

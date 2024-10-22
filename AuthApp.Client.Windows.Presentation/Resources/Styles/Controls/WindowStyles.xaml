@@ -5,91 +5,104 @@
     <Style x:Key="CustomWindowStyle" TargetType="{x:Type customControls:CustomWindow}">
         <!--  Remove default chrome and make the window transparent  -->
         <Setter Property="WindowStyle" Value="None" />
-        <Setter Property="AllowsTransparency" Value="True" />
         <Setter Property="Width" Value="auto" />
+        <Setter Property="BorderBrush" Value="{DynamicResource NormalOverlayBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="VerticalAlignment" Value="Stretch" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
-
+        <Setter Property="WindowChrome.WindowChrome">
+            <Setter.Value>
+                <WindowChrome CaptionHeight="0" />
+            </Setter.Value>
+        </Setter>
         <Setter Property="Height" Value="auto" />
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="ResizeMode" Value="CanResize" />
+        <Setter Property="Background" Value="{DynamicResource SecondaryBackgroundBrush}" />
+        <Setter Property="ResizeMode" Value="CanResizeWithGrip" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type customControls:CustomWindow}">
-                    <Border
-                        Background="{DynamicResource PrimaryBackgroundBrush}"
-                        CornerRadius="{StaticResource SmallCornerRadius}"
-                        DataContext="{Binding RelativeSource={RelativeSource AncestorType={x:Type customControls:CustomWindow}}}">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="auto" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
+                    <AdornerDecorator>
+                        <Border
+                            Background="{DynamicResource PrimaryBackgroundBrush}"
+                            CornerRadius="{StaticResource SmallCornerRadius}"
+                            DataContext="{Binding RelativeSource={RelativeSource AncestorType={x:Type customControls:CustomWindow}}}">
 
-                            <Grid x:Name="gridTitleBar" Background="{DynamicResource SecondaryBackgroundBrush}">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="auto" />
-                                </Grid.ColumnDefinitions>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
 
-                                <TextBlock
-                                    Margin="{StaticResource Left_Normal_Margin}"
-                                    VerticalAlignment="Center"
-                                    Foreground="White"
-                                    Text="{Binding Title, RelativeSource={RelativeSource AncestorType={x:Type customControls:CustomWindow}}}" />
+                                <Grid x:Name="gridTitleBar" Background="{DynamicResource SecondaryBackgroundBrush}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="auto" />
+                                    </Grid.ColumnDefinitions>
 
-                                <StackPanel
-                                    Height="35"
-                                    HorizontalAlignment="Right"
-                                    Orientation="Horizontal">
-                                    <!--  Minimize Button  -->
-                                    <customControls:IconButton
-                                        x:Name="btnMinimize"
-                                        Appearance="Secondary"
-                                        Icon="WindowMinimize">
-                                        <customControls:IconButton.Style>
-                                            <Style TargetType="{x:Type customControls:IconButton}">
-                                                <Setter Property="Visibility" Value="Visible" />
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding IsMinimizeButtonVisible, RelativeSource={RelativeSource TemplatedParent}}" Value="False">
-                                                        <Setter Property="Visibility" Value="Collapsed" />
-                                                    </DataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </customControls:IconButton.Style>
-                                    </customControls:IconButton>
 
-                                    <!--  Maximize/Restore Button  -->
-                                    <customControls:IconButton
-                                        x:Name="btnMaximize"
-                                        Appearance="Secondary"
-                                        Icon="WindowMaximize">
-                                        <customControls:IconButton.Style>
-                                            <Style TargetType="{x:Type customControls:IconButton}">
-                                                <Setter Property="Visibility" Value="Visible" />
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding IsMaximizeButtonVisible, RelativeSource={RelativeSource TemplatedParent}}" Value="False">
-                                                        <Setter Property="Visibility" Value="Collapsed" />
-                                                    </DataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </customControls:IconButton.Style>
-                                    </customControls:IconButton>
+                                    <TextBlock
+                                        Margin="{StaticResource Left_Normal_Margin}"
+                                        VerticalAlignment="Center"
+                                        Foreground="{DynamicResource PrimaryTextBrush}"
+                                        Text="{Binding Title, RelativeSource={RelativeSource AncestorType={x:Type customControls:CustomWindow}}}"
+                                        TextAlignment="Left" />
 
-                                    <!--  Close Button  -->
-                                    <customControls:IconButton
-                                        x:Name="btnClose"
-                                        Appearance="Secondary"
-                                        DockPanel.Dock="Right"
-                                        Icon="WindowClose" />
-                                </StackPanel>
+                                    <StackPanel
+                                        Grid.Column="1"
+                                        Height="35"
+                                        HorizontalAlignment="Right"
+                                        Orientation="Horizontal">
+
+                                        <customControls:LangChanger x:Name="controlLangChanger" />
+                                        <customControls:ThemeChanger x:Name="controlThemeChanger" />
+
+                                        <!--  Minimize Button  -->
+                                        <customControls:IconButton
+                                            x:Name="btnMinimize"
+                                            Appearance="Secondary"
+                                            Icon="WindowMinimize" />
+
+                                        <!--  Maximize/Restore Button  -->
+                                        <customControls:IconButton
+                                            x:Name="btnMaximize"
+                                            Appearance="Secondary"
+                                            Icon="WindowMaximize" />
+
+                                        <!--  Close Button  -->
+                                        <customControls:IconButton
+                                            x:Name="btnClose"
+                                            Appearance="Secondary"
+                                            DockPanel.Dock="Right"
+                                            Icon="WindowClose" />
+                                    </StackPanel>
+                                </Grid>
+
+                                <Grid Grid.Row="1" Margin="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Padding}">
+                                    <ContentPresenter Content="{Binding Content, RelativeSource={RelativeSource AncestorType={x:Type customControls:CustomWindow}}}" />
+                                </Grid>
                             </Grid>
+                        </Border>
+                    </AdornerDecorator>
 
-                            <Grid Grid.Row="1" Margin="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Padding}">
-                                <ContentPresenter Content="{Binding Content, RelativeSource={RelativeSource AncestorType={x:Type customControls:CustomWindow}}}" />
-                            </Grid>
-                        </Grid>
-                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChangeLangButtonVisible" Value="False">
+                            <Setter TargetName="controlLangChanger" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+
+                        <Trigger Property="IsChangeThemeButtonVisible" Value="False">
+                            <Setter TargetName="controlThemeChanger" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+
+                        <Trigger Property="IsMinimizeButtonVisible" Value="False">
+                            <Setter TargetName="btnMinimize" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+
+                        <Trigger Property="IsMaximizeButtonVisible" Value="False">
+                            <Setter TargetName="btnMaximize" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

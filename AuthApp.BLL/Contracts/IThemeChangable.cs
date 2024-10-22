@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace AuthApp.BLL.Contracts
 {
-    interface IThemeChangable
+    public interface IThemeChangable
     {
         Task ChangeThemeAsync(ThemeType themeType);
+
+        ThemeType CurrentThemeType { get; }
     }
 }

@@ -4,15 +4,23 @@
     xmlns:sys="clr-namespace:System;assembly=mscorlib">
     <!--  Auth  -->
     <sys:String x:Key="SignIn">Sign in</sys:String>
+    <sys:String x:Key="SigningIn">Signing in...</sys:String>
     <sys:String x:Key="NoAccount">No account?</sys:String>
     <sys:String x:Key="SignUp">Sign up</sys:String>
+    <sys:String x:Key="SigningUp">Signing up...</sys:String>
     <sys:String x:Key="SignOut">Sign out</sys:String>
+    <sys:String x:Key="SigningOut">Signing out...</sys:String>
+    <sys:String x:Key="InvalidAuthData">Invalid data</sys:String>
 
     <!--  Dev data  -->
+    <sys:String x:Key="DevInfo">Developer info</sys:String>
     <sys:String x:Key="DevFullName">Lev Aksyonov</sys:String>
-    <sys:String x:Key="DevDescription">Lev Aksyonov</sys:String>
+    <sys:String x:Key="BirthDate">Date of birth</sys:String>
+    <sys:String x:Key="BirthDateValue">7th December 2002</sys:String>
+    <sys:String x:Key="DevAdditionalMessage">Thanks for the task, now let's talk work :)</sys:String>
 
     <!--  User Data  -->
+    <sys:String x:Key="UserInfo">User info</sys:String>
     <sys:String x:Key="ID">ID</sys:String>
     <sys:String x:Key="FirstName">First name</sys:String>
     <sys:String x:Key="LastName">Last name</sys:String>
@@ -20,6 +28,14 @@
     <sys:String x:Key="Phone">Phone</sys:String>
     <sys:String x:Key="Username">Username</sys:String>
     <sys:String x:Key="Password">Password</sys:String>
-    <sys:String x:Key="EmptyUserData">This section will display user information once you'll sign in</sys:String>
+    <sys:String x:Key="EmptyUserData">Sign in or sign up to display user information</sys:String>
+
+    <!--  Sign Up  -->
+    <sys:String x:Key="FirstNameNotValid">First name is not valid</sys:String>
+    <sys:String x:Key="LastNameNotValid">Last name is not valid</sys:String>
+    <sys:String x:Key="EmailNotValid">Email is not valid</sys:String>
+    <sys:String x:Key="PhoneNotValid">Phone is not valid</sys:String>
+    <sys:String x:Key="UsernameNotValid">Username is not valid</sys:String>
+    <sys:String x:Key="PasswordNotValid">Password is not valid</sys:String>
 
 </ResourceDictionary>

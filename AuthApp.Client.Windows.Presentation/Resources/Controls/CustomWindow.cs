@@ -40,6 +40,34 @@ namespace AuthApp.Client.Windows.Presentation.Resources.Controls
 
         #region Dependency properties
 
+        #region IsChangeLangButtonVisible Depedency property
+        public static readonly DependencyProperty IsChangeLangButtonVisibleProperty = DependencyProperty.Register(
+            name: nameof(IsChangeLangButtonVisible),
+            propertyType: typeof(bool),
+            ownerType: typeof(CustomWindow),
+            typeMetadata: new PropertyMetadata(defaultValue: false));
+
+        public bool IsChangeLangButtonVisible
+        {
+            get { return (bool)GetValue(IsChangeLangButtonVisibleProperty); }
+            set { SetValue(IsChangeLangButtonVisibleProperty, value); }
+        }
+        #endregion
+
+        #region IsChangeThemeButtonVisible Depedency property
+        public static readonly DependencyProperty IsChangeThemeButtonVisibleProperty = DependencyProperty.Register(
+            name: nameof(IsChangeThemeButtonVisible),
+            propertyType: typeof(bool),
+            ownerType: typeof(CustomWindow),
+            typeMetadata: new PropertyMetadata(defaultValue: false));
+
+        public bool IsChangeThemeButtonVisible
+        {
+            get { return (bool)GetValue(IsChangeThemeButtonVisibleProperty); }
+            set { SetValue(IsChangeThemeButtonVisibleProperty, value); }
+        }
+        #endregion
+
         #region IsMinimizeButtonVisible Depedency property
         public static readonly DependencyProperty IsMinimizeButtonVisibleProperty = DependencyProperty.Register(
             name: nameof(IsMinimizeButtonVisible),
@@ -68,6 +96,10 @@ namespace AuthApp.Client.Windows.Presentation.Resources.Controls
             set { SetValue(IsMaximizeButtonVisibleProperty, value); }
         }
         #endregion
+
+
+        
+
 
 
         #endregion

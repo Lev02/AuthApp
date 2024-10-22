@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AuthApp.Core.Models
+namespace AuthApp.BLL.Messages
 {
-    internal class DevInfo
+    public class UserLoggedOutMessage
     {
+        
     }
 }

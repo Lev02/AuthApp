@@ -10,6 +10,7 @@ using AuthApp.BLL.Contracts;
 using AuthApp.Client.Windows.Presentation.Services;
 using AuthApp.Core.Contracts;
 using AuthApp.DAL.Services;
+using AuthApp.Client.Windows.Presentation.MVVM.UserControls.UserInfo;
 
 namespace AuthApp.Client.Windows.Presentation
 {
@@ -55,7 +56,10 @@ namespace AuthApp.Client.Windows.Presentation
             services.AddTransient<SignUpViewModel>();
 
             services.AddTransient<AuthControl>();
-            services.AddTransient<AuthViewModel>();
+            services.AddSingleton<AuthViewModel>();
+
+            services.AddTransient<UserInfoControl>();
+            services.AddTransient<UserInfoViewModel>();
 
             #endregion
         }

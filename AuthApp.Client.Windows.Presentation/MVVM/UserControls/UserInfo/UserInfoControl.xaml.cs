@@ -22,7 +22,11 @@ namespace AuthApp.Client.Windows.Presentation.MVVM.UserControls.UserInfo
     {
         public UserInfoControl()
         {
+            ViewModel = ViewModelLocator.UserInfoViewModel;
+            DataContext = this;
             InitializeComponent();
         }
+
+        public UserInfoViewModel? ViewModel { get; }
     }
 }

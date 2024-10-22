@@ -6,11 +6,16 @@
     xmlns:local="clr-namespace:AuthApp.Client.Windows.Presentation.MVVM.UserControls.UserInfo"
     xmlns:materialIconsWPF="clr-namespace:Material.Icons.WPF;assembly=Material.Icons.WPF"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DataContext="{d:DesignInstance local:UserInfoControl,
+                                     IsDesignTimeCreatable=False}"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
     <Grid>
-        <StackPanel Margin="20" VerticalAlignment="Center">
+        <StackPanel
+            Margin="20"
+            VerticalAlignment="Center"
+            Visibility="{Binding ViewModel.CurrentUser, Converter={StaticResource ObjectToVisibilityInversedConverter}}">
             <materialIconsWPF:MaterialIcon
                 Width="{StaticResource Header1_FontSize}"
                 Height="{StaticResource Header1_FontSize}"
@@ -20,10 +25,41 @@
             <TextBlock
                 Margin="{StaticResource Top_Big_Margin}"
                 HorizontalAlignment="Center"
+                FontWeight="Bold"
                 Foreground="{StaticResource SecondaryTextBrush}"
                 Text="{DynamicResource EmptyUserData}"
                 TextAlignment="Center" />
 
+        </StackPanel>
+
+        <StackPanel Visibility="{Binding ViewModel.CurrentUser, Converter={StaticResource ObjectToVisibilityConverter}}">
+            <TextBlock Text="{DynamicResource FirstName}" />
+            <TextBox
+                Margin="{StaticResource Top_Tiny_Margin}"
+                IsReadOnly="True"
+                Style="{StaticResource RoundedTextBoxStyle}"
+                Text="{Binding ViewModel.CurrentUser.FirstName}" />
+
+            <TextBlock Margin="{StaticResource Top_Normal_Margin}" Text="{DynamicResource LastName}" />
+            <TextBox
+                Margin="{StaticResource Top_Tiny_Margin}"
+                IsReadOnly="True"
+                Style="{StaticResource RoundedTextBoxStyle}"
+                Text="{Binding ViewModel.CurrentUser.LastName}" />
+
+            <TextBlock Margin="{StaticResource Top_Normal_Margin}" Text="{DynamicResource Email}" />
+            <TextBox
+                Margin="{StaticResource Top_Tiny_Margin}"
+                IsReadOnly="True"
+                Style="{StaticResource RoundedTextBoxStyle}"
+                Text="{Binding ViewModel.CurrentUser.Email}" />
+
+            <TextBlock Margin="{StaticResource Top_Normal_Margin}" Text="{DynamicResource Phone}" />
+            <TextBox
+                Margin="{StaticResource Top_Tiny_Margin}"
+                IsReadOnly="True"
+                Style="{StaticResource RoundedTextBoxStyle}"
+                Text="{Binding ViewModel.CurrentUser.Phone}" />
         </StackPanel>
 
     </Grid>

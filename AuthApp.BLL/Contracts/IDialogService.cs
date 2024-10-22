@@ -9,5 +9,6 @@ namespace AuthApp.BLL.Contracts
     public interface IDialogService
     {
         void ShowContent(object content, string title);
+        void CloseContent();
     }
 }

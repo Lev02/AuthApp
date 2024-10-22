@@ -10,27 +10,70 @@
     d:DataContext="{d:DesignInstance local:AuthControl,
                                      IsDesignTimeCreatable=False}"
     mc:Ignorable="d">
-    <StackPanel>
-        <controls:IconButton
-            Command="{Binding ViewModel.SignInCommand}"
-            Icon="SignIN"
-            Text="{DynamicResource SignIn}" />
-        <StackPanel Margin="{StaticResource Top_Normal_Margin}" Orientation="Horizontal">
-            <TextBlock
-                VerticalAlignment="Center"
-                Foreground="{StaticResource SecondaryTextBrush}"
-                Text="{StaticResource NoAccount}" />
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackPanel x:Name="stackPanelLogin" Visibility="{Binding ViewModel.CurrentUser, Converter={StaticResource ObjectToVisibilityInversedConverter}}">
+                <TextBlock Margin="{StaticResource Top_Normal_Margin}" Text="{StaticResource Username}" />
+                <TextBox
+                    Margin="{StaticResource Top_Tiny_Margin}"
+                    Style="{StaticResource RoundedTextBoxStyle}"
+                    Text="{Binding ViewModel.Username, UpdateSourceTrigger=PropertyChanged}" />
+
+                <TextBlock Margin="{StaticResource Top_Normal_Margin}" Text="{StaticResource Password}" />
+                <controls:CustomPasswordBox
+                    Margin="{StaticResource Top_Tiny_Margin}"
+                    Password="{Binding ViewModel.Password, UpdateSourceTrigger=PropertyChanged}"
+                    Style="{StaticResource PasswordBoxWithToggleStyle}" />
+
+                <controls:IconButton
+                    Margin="{StaticResource Top_Big_Margin}"
+                    Command="{Binding ViewModel.SignInCommand}"
+                    Icon="SignIn"
+                    Text="{DynamicResource SignIn}"
+                    TextProgress="{DynamicResource SigningIn}" />
+
+                <TextBlock
+                    Margin="{StaticResource Top_Small_Margin}"
+                    HorizontalAlignment="Center"
+                    FontSize="{StaticResource Small_FontSize}"
+                    Foreground="Red"
+                    Text="{DynamicResource InvalidAuthData}"
+                    Visibility="{Binding ViewModel.IsSignInFail, Converter={StaticResource ObjectToVisibilityConverter}}" />
+
+            </StackPanel>
+
+            <StackPanel
+                Grid.Row="1"
+                Margin="{StaticResource Top_Big_Margin}"
+                VerticalAlignment="Bottom"
+                Orientation="Horizontal">
+                <TextBlock
+                    VerticalAlignment="Center"
+                    Foreground="{StaticResource SecondaryTextBrush}"
+                    Text="{DynamicResource NoAccount}" />
+                <controls:IconButton
+                    Appearance="Transparent"
+                    Command="{Binding ViewModel.SignUpCommand}"
+                    Text="{DynamicResource SignUp}" />
+            </StackPanel>
+        </Grid>
+
+        <StackPanel
+            x:Name="stackPanelLogout"
+            d:Visibility="Collapsed"
+            Visibility="{Binding ViewModel.CurrentUser, Converter={StaticResource ObjectToVisibilityConverter}}">
             <controls:IconButton
-                Appearance="Transparent"
-                Command="{Binding ViewModel.SignUpCommand}"
-                Text="{DynamicResource SignUp}" />
+                Appearance="Secondary"
+                Command="{Binding ViewModel.SignOutCommand}"
+                Icon="{x:Static materialIcons:MaterialIconKind.SignOut}"
+                Text="{DynamicResource SignOut}"
+                TextProgress="{DynamicResource SigningOut}" />
         </StackPanel>
 
-
-        <controls:IconButton
-            Appearance="Secondary"
-            Command="{Binding ViewModel.SignOutCommand}"
-            Icon="{x:Static materialIcons:MaterialIconKind.SignOut}"
-            Text="{DynamicResource SignOut}" />
-    </StackPanel>
+    </Grid>
 </UserControl>

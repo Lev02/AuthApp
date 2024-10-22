@@ -17,6 +17,7 @@
                 <ResourceDictionary Source="Resources/Styles/Base/Margins.xaml" />
 
                 <!--  Control styles  -->
+                <ResourceDictionary Source="Resources/Styles/Controls/BorderStyles.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Controls/ButtonStyles.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Controls/PasswordBoxStyles.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Controls/TabControlStyles.xaml" />
@@ -33,7 +34,9 @@
             </ResourceDictionary.MergedDictionaries>
 
             <!--  Converters  -->
+            <converters:IsNotNullConverter x:Key="IsNotNullConverter" />
             <converters:ObjectToVisibilityConverter x:Key="ObjectToVisibilityConverter" />
+            <converters:ObjectToVisibilityInversedConverter x:Key="ObjectToVisibilityInversedConverter" />
 
             <!--  Fonts  -->
             <FontFamily x:Key="MaterialDesignIcons">

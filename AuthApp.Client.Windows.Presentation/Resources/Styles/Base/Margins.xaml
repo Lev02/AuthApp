@@ -16,6 +16,13 @@
         Top="{StaticResource NormalMargin}" />
 
     <Thickness
+        x:Key="Big_Margin"
+        Bottom="{StaticResource BigMargin}"
+        Left="{StaticResource BigMargin}"
+        Right="{StaticResource BigMargin}"
+        Top="{StaticResource BigMargin}" />
+
+    <Thickness
         x:Key="Top_Big_Margin"
         Bottom="0"
         Left="0"
@@ -72,10 +79,10 @@
         Top="0" />
 
     <Thickness
-        x:Key="LeftRight_Normal_Margin"
+        x:Key="Right_Big_Margin"
         Bottom="0"
-        Left="{StaticResource NormalMargin}"
-        Right="{StaticResource NormalMargin}"
+        Left="0"
+        Right="{StaticResource BigMargin}"
         Top="0" />
 
     <Thickness

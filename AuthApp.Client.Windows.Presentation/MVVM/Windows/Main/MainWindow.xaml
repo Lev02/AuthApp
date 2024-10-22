@@ -12,7 +12,9 @@
     Title="AuthApp"
     Width="800"
     Height="450"
-    Background="{DynamicResource PrimaryBackgroundBrush}"
+    Background="{DynamicResource SecondaryBackgroundBrush}"
+    IsChangeLangButtonVisible="True"
+    IsChangeThemeButtonVisible="True"
     mc:Ignorable="d">
     <Grid Margin="{StaticResource Normal_Margin}">
         <Grid.ColumnDefinitions>
@@ -20,27 +22,23 @@
             <ColumnDefinition Width="auto" />
         </Grid.ColumnDefinitions>
 
-        <Border CornerRadius="5">
-            <TabControl>
-                <customControls:IconTabItem Icon="Account" Text="UserInfo">
-                    <userInfo:UserInfoControl />
-                </customControls:IconTabItem>
+        <TabControl>
+            <customControls:IconTabItem Icon="Account" Text="{DynamicResource UserInfo}">
+                <userInfo:UserInfoControl Margin="{StaticResource Big_Margin}" />
+            </customControls:IconTabItem>
 
-                <customControls:IconTabItem Icon="CodeBrackets" Text="DevInfo">
-                    <devInfo:DevInfoControl />
-                </customControls:IconTabItem>
-            </TabControl>
-        </Border>
+            <customControls:IconTabItem Icon="CodeBrackets" Text="{DynamicResource DevInfo}">
+                <devInfo:DevInfoControl Margin="{StaticResource Big_Margin}" />
+            </customControls:IconTabItem>
+        </TabControl>
 
 
         <Border
             Grid.Column="1"
             Margin="{StaticResource Left_Normal_Margin}"
-            Padding="20"
             HorizontalAlignment="Right"
             VerticalAlignment="Stretch"
-            Background="{DynamicResource LightOverlayBrush}"
-            CornerRadius="{StaticResource NormalCornerRadius}">
+            Style="{StaticResource LightBackgroundBorderStyle}">
             <auth:AuthControl />
         </Border>
 

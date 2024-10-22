@@ -32,7 +32,7 @@ namespace AuthApp.DAL.Tests
         public async Task RegisterUserAsync_ShouldReturnTrue_WhenUserIsRegisteredSuccessfully()
         {
             // Act
-            var result = await _userService.RegisterUserAsync(_moqUser);
+            var result = await _userService.RegisterUserAsync(_moqUser, loginAfterwards: false);
 
             // Assert
             Assert.IsTrue(result, "Пользователь должен быть успешно зарегистрирован.");

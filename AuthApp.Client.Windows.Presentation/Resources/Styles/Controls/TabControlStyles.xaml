@@ -3,30 +3,20 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TabControl}">
-                    <Border
-                        Background="{DynamicResource LightOverlayBrush}"
-                        BorderThickness="0"
-                        CornerRadius="{StaticResource SmallCornerRadius}">
+                    <Border Padding="0" Style="{StaticResource LightBackgroundBorderStyle}">
                         <Grid ClipToBounds="True">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
                             <!--  Rounded TabPanel (Top Corners Only)  -->
-                            <Border
-                                Grid.Row="0"
-                                Background="{DynamicResource LightOverlayBrush}"
-                                BorderThickness="0"
-                                CornerRadius="{StaticResource SmallCornerRadius}">
+                            <Border Padding="0" Style="{StaticResource LightBackgroundBorderStyle}">
                                 <TabPanel
-                                    Margin="2,2,2,0"
+                                    HorizontalAlignment="Center"
                                     Background="Transparent"
                                     IsItemsHost="True" />
                             </Border>
-                            <ContentPresenter
-                                Grid.Row="1"
-                                Margin="2"
-                                ContentSource="SelectedContent" />
+                            <ContentPresenter Grid.Row="1" ContentSource="SelectedContent" />
                         </Grid>
                     </Border>
                 </ControlTemplate>

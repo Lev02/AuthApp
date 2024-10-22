@@ -19,8 +19,10 @@ namespace AuthApp.DAL.Services
             _httpClient = httpClient;
         }
 
+        #region Methods
+
         // Регистрация пользователя
-        public async Task<bool> RegisterUserAsync(User user)
+        public async Task<bool> RegisterUserAsync(User user, bool loginAfterwards)
         {
             string userJson = JsonSerializer.Serialize(
                 user, 
@@ -31,7 +33,13 @@ namespace AuthApp.DAL.Services
             var contentStr = await content.ReadAsStringAsync();
 
             var response = await _httpClient.PostAsync("/v2/user", content);
-            return response.IsSuccessStatusCode;
+
+            bool result = response.IsSuccessStatusCode;
+            if (response.IsSuccessStatusCode)
+            {
+                result &= await LoginAsync(user.Username, user.Password);
+            }
+            return result;
         }
 
         // Авторизация пользователя
@@ -49,10 +57,11 @@ namespace AuthApp.DAL.Services
         }
 
         // Получение данных пользователя по username
-        public async Task<User> GetUserByLoginAsync(string username)
+        public async Task<User?> GetUserByLoginAsync(string username)
         {
             var response = await _httpClient.GetAsync($"/v2/user/{username}");
-            response.EnsureSuccessStatusCode();
+            if (!response.IsSuccessStatusCode)
+                return null;
 
             var jsonResponse = await response.Content.ReadAsStringAsync();
             var user = JsonSerializer.Deserialize<User>(jsonResponse, options: new JsonSerializerOptions()
@@ -60,8 +69,10 @@ namespace AuthApp.DAL.Services
                 PropertyNamingPolicy = new LowerCaseNamingPolicy()
             });
 
-            return user ?? new User();
+            return user;
         }
+
+        #endregion
     }
 
 }

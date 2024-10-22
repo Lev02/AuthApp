@@ -1,0 +1,29 @@
+﻿<UserControl
+    x:Class="AuthApp.Client.Windows.Presentation.Resources.Controls.LangChanger"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:customControls="clr-namespace:AuthApp.Client.Windows.Presentation.Resources.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:enums="clr-namespace:AuthApp.Core.Enums;assembly=AuthApp.Core"
+    xmlns:local="clr-namespace:AuthApp.Client.Windows.Presentation.Resources.Controls"
+    xmlns:materialIconsWPF="clr-namespace:Material.Icons.WPF;assembly=Material.Icons.WPF"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Cursor="Hand"
+    mc:Ignorable="d">
+
+    <customControls:IconButton>
+        <customControls:IconButton.Style>
+            <Style BasedOn="{StaticResource SecondaryButtonStyle}" TargetType="{x:Type customControls:IconButton}">
+                <Setter Property="Icon" Value="Language" />
+                <Setter Property="Text" Value="RU" />
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:LangChanger}}, Path=CurrentLangShortName}" Value="{x:Static enums:LangShortName.en}">
+                        <Setter Property="Text" Value="EN" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </customControls:IconButton.Style>
+
+
+    </customControls:IconButton>
+</UserControl>

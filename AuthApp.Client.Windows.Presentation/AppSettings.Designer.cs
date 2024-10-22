@@ -25,7 +25,7 @@ namespace AuthApp.Client.Windows.Presentation {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("en")]
         public string Lang {
             get {
                 return ((string)(this["Lang"]));
@@ -37,7 +37,7 @@ namespace AuthApp.Client.Windows.Presentation {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Dark")]
         public string Theme {
             get {
                 return ((string)(this["Theme"]));

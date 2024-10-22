@@ -17,7 +17,7 @@
                 <DropShadowEffect
                     BlurRadius="8"
                     Direction="315"
-                    Opacity="1"
+                    Opacity="0.5"
                     ShadowDepth="0"
                     Color="{DynamicResource PrimaryBackgroundColor}" />
             </Setter.Value>
@@ -76,6 +76,12 @@
                     </Grid>
 
                     <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource SecondaryBackgroundBrush}" />
+                            <Setter Property="Background" Value="Gray" />
+                            <Setter Property="Cursor" Value="No" />
+                        </Trigger>
+
                         <Trigger Property="IsPressed" Value="True">
                             <Trigger.EnterActions>
                                 <BeginStoryboard>
@@ -176,14 +182,14 @@
         <Setter Property="Padding" Value="8,0" />
         <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryButtonBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
     </Style>
 
     <Style
         x:Key="SecondaryButtonStyle"
         BasedOn="{StaticResource PrimaryButtonStyle}"
         TargetType="{x:Type Button}">
-        <Setter Property="Background" Value="{DynamicResource SecondaryBackgroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource SecondaryButtonBrush}" />
         <Setter Property="FontWeight" Value="Bold" />
     </Style>
 </ResourceDictionary>

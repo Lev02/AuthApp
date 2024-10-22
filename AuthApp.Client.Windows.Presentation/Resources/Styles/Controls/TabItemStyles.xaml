@@ -15,15 +15,16 @@
                             x:Name="borderMain"
                             Padding="5"
                             CornerRadius="{StaticResource NormalCornerRadius}">
-                            <Border.RenderTransform>
-                                <ScaleTransform ScaleX="1" ScaleY="1" />
-                            </Border.RenderTransform>
 
-                            <Border.RenderTransformOrigin>
-                                <Point X="0.5" Y="0.5" />
-                            </Border.RenderTransformOrigin>
 
-                            <Grid>
+                            <Grid x:Name="gridMain">
+                                <Grid.RenderTransform>
+                                    <ScaleTransform ScaleX="1" ScaleY="1" />
+                                </Grid.RenderTransform>
+
+                                <Grid.RenderTransformOrigin>
+                                    <Point X="0.5" Y="0.5" />
+                                </Grid.RenderTransformOrigin>
 
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="auto" />
@@ -59,8 +60,6 @@
                                     </TextBlock.Style>
                                 </TextBlock>
                             </Grid>
-
-
                         </Border>
 
                         <Border
@@ -103,13 +102,13 @@
 
                                         <!--  Enter scale inner content animation  -->
                                         <DoubleAnimation
-                                            Storyboard.TargetName="borderMain"
+                                            Storyboard.TargetName="gridMain"
                                             Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
                                             To="1.05"
                                             Duration="0:0:0.15" />
 
                                         <DoubleAnimation
-                                            Storyboard.TargetName="borderMain"
+                                            Storyboard.TargetName="gridMain"
                                             Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
                                             To="1.05"
                                             Duration="0:0:0.15" />
@@ -130,13 +129,13 @@
 
                                         <!--  Exit scale inner content animation  -->
                                         <DoubleAnimation
-                                            Storyboard.TargetName="borderMain"
+                                            Storyboard.TargetName="gridMain"
                                             Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
                                             To="1"
                                             Duration="0:0:0.15" />
 
                                         <DoubleAnimation
-                                            Storyboard.TargetName="borderMain"
+                                            Storyboard.TargetName="gridMain"
                                             Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
                                             To="1"
                                             Duration="0:0:0.15" />

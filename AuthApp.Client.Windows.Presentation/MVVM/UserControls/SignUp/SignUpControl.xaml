@@ -8,51 +8,64 @@
     xmlns:local="clr-namespace:AuthApp.Client.Windows.Presentation.MVVM.UserControls.SignUp"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:mvvm="clr-namespace:AuthApp.Client.Windows.Presentation.MVVM"
+    VerticalAlignment="Center"
     d:DataContext="{d:DesignInstance local:SignUpControl,
                                      IsDesignTimeCreatable=False}"
     mc:Ignorable="d">
 
 
     <StackPanel>
-        <TextBlock Text="{StaticResource FirstName}" />
+        <TextBlock Text="{DynamicResource FirstName}" />
         <TextBox
             Margin="{StaticResource Top_Tiny_Margin}"
             Style="{StaticResource RoundedTextBoxStyle}"
-            Text="{Binding ViewModel.FirstName}" />
+            Text="{Binding ViewModel.FirstName, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
 
-        <TextBlock Margin="{StaticResource Top_Normal_Margin}" Text="{StaticResource LastName}" />
+        <TextBlock Margin="{StaticResource Top_Normal_Margin}" Text="{DynamicResource LastName}" />
         <TextBox
             Margin="{StaticResource Top_Tiny_Margin}"
             Style="{StaticResource RoundedTextBoxStyle}"
-            Text="{Binding ViewModel.LastName}" />
+            Text="{Binding ViewModel.LastName, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
 
-        <TextBlock Margin="{StaticResource Top_Normal_Margin}" Text="{StaticResource Email}" />
+        <TextBlock Margin="{StaticResource Top_Normal_Margin}" Text="{DynamicResource Email}" />
         <TextBox
             Margin="{StaticResource Top_Tiny_Margin}"
             Style="{StaticResource RoundedTextBoxStyle}"
-            Text="{Binding ViewModel.Email}" />
+            Text="{Binding ViewModel.Email, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
 
-        <TextBlock Margin="{StaticResource Top_Normal_Margin}" Text="{StaticResource Phone}" />
+        <TextBlock Margin="{StaticResource Top_Normal_Margin}" Text="{DynamicResource Phone}" />
         <TextBox
             Margin="{StaticResource Top_Tiny_Margin}"
             Style="{StaticResource RoundedTextBoxStyle}"
-            Text="{Binding ViewModel.Phone}" />
+            Text="{Binding ViewModel.Phone, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
 
-        <TextBlock Margin="{StaticResource Top_Normal_Margin}" Text="{StaticResource Username}" />
+        <TextBlock Margin="{StaticResource Top_Normal_Margin}" Text="{DynamicResource Username}" />
         <TextBox
+            x:Name="textBoxUserName"
             Margin="{StaticResource Top_Tiny_Margin}"
             Style="{StaticResource RoundedTextBoxStyle}"
-            Text="{Binding ViewModel.Username}" />
+            Text="{Binding ViewModel.Username, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True, NotifyOnValidationError=True, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True, Mode=TwoWay}" />
+        <!--
+        <TextBlock Foreground="Red" Text="{Binding (Validation.Errors)[0].ErrorContent, ElementName=textBoxUserName, Mode=OneWay}" />-->
 
-        <TextBlock Margin="{StaticResource Top_Normal_Margin}" Text="{StaticResource Password}" />
+        <TextBlock Margin="{StaticResource Top_Normal_Margin}" Text="{DynamicResource Password}" />
         <customControls:CustomPasswordBox
             Margin="{StaticResource Top_Tiny_Margin}"
-            Password="{Binding ViewModel.Password}"
+            Password="{Binding ViewModel.Password, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"
             Style="{StaticResource PasswordBoxWithToggleStyle}" />
 
         <customControls:IconButton
             Margin="{StaticResource Top_Big_Margin}"
+            Command="{Binding ViewModel.SignUpCommand, UpdateSourceTrigger=PropertyChanged}"
             Icon="AccountPlus"
-            Text="{StaticResource SignUp}" />
+            Text="{DynamicResource SignUp}"
+            TextProgress="{DynamicResource SigningUp}" />
+        <TextBlock
+            Margin="{StaticResource Top_Small_Margin}"
+            HorizontalAlignment="Center"
+            FontSize="{StaticResource Small_FontSize}"
+            Foreground="Red"
+            Text="{DynamicResource InvalidAuthData}"
+            Visibility="{Binding ViewModel.IsSignUpFail, Converter={StaticResource ObjectToVisibilityConverter}}" />
     </StackPanel>
 </UserControl>

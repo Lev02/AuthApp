@@ -1,5 +1,6 @@
 ﻿using AuthApp.Client.Windows.Presentation.MVVM.UserControls.Auth;
 using AuthApp.Client.Windows.Presentation.MVVM.UserControls.SignUp;
+using AuthApp.Client.Windows.Presentation.MVVM.UserControls.UserInfo;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -23,6 +24,8 @@ namespace AuthApp.Client.Windows.Presentation.MVVM
 
         public static AuthViewModel? AuthViewModel => _serviceProvider?.GetRequiredService<AuthViewModel>();
         public static SignUpViewModel? SignUpViewModel => _serviceProvider?.GetRequiredService<SignUpViewModel>();
+        public static UserInfoViewModel? UserInfoViewModel => _serviceProvider?.GetRequiredService<UserInfoViewModel>();
+
 
         #endregion
     }

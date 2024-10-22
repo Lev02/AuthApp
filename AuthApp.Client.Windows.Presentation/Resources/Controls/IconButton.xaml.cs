@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using AuthApp.Core.Enums;
+using CommunityToolkit.Mvvm.Input;
 using Material.Icons;
 using Material.Icons.WPF;
 
@@ -27,9 +29,40 @@ namespace AuthApp.Client.Windows.Presentation.Resources.Controls
         {
             InitializeComponent();
             UpdateApperance();
+
+            var dpd = DependencyPropertyDescriptor.FromProperty(Button.CommandProperty, typeof(Button));
+            if (dpd != null)
+            {
+                dpd.AddValueChanged(this, OnCommandChanged);
+            }
         }
 
+        private void OnCommandChanged(object? sender, EventArgs e)
+        {
+            var button = sender as Button;
+            if (button != null
+                && button.Command is AsyncRelayCommand relayCommand)
+            {
+                AsyncRelayCommand = relayCommand;
+            }
+        }
+
+
         #region Dependency properties
+
+        #region Async Relay Command Dependency property
+        public static readonly DependencyProperty AsyncRelayCommandProperty = DependencyProperty.Register(
+            name: nameof(AsyncRelayCommand),
+            propertyType: typeof(AsyncRelayCommand),
+            ownerType: typeof(IconButton),
+            typeMetadata: new PropertyMetadata(defaultValue: null));
+
+        public AsyncRelayCommand? AsyncRelayCommand
+        {
+            get { return (AsyncRelayCommand?)GetValue(AsyncRelayCommandProperty); }
+            private set { SetValue(AsyncRelayCommandProperty, value); }
+        }
+        #endregion
 
         #region Text Dependency Property
         public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
@@ -42,6 +75,20 @@ namespace AuthApp.Client.Windows.Presentation.Resources.Controls
         {
             get { return (string?)GetValue(TextProperty); }
             set { SetValue(TextProperty, value); }
+        }
+        #endregion
+
+        #region Text Progress Dependency Property
+        public static readonly DependencyProperty TextProgressProperty = DependencyProperty.Register(
+            name: nameof(TextProgress),
+            propertyType: typeof(string),
+            ownerType: typeof(IconButton),
+            typeMetadata: new PropertyMetadata(defaultValue: null));
+
+        public string? TextProgress
+        {
+            get { return (string?)GetValue(TextProgressProperty); }
+            set { SetValue(TextProgressProperty, value); }
         }
         #endregion
 

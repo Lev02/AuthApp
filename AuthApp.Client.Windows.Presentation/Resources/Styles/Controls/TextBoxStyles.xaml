@@ -2,11 +2,34 @@
     <Style x:Key="RoundedTextBoxStyle" TargetType="TextBox">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
         <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource SecondaryButtonBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource NormalOverlayBrush}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Padding" Value="5" />
         <Setter Property="FontFamily" Value="{DynamicResource AnonymusPro}" />
         <Setter Property="FontSize" Value="{StaticResource Normal_FontSize}" />
+        <Setter Property="Validation.ErrorTemplate">
+            <Setter.Value>
+                <!--  Validation Error Template  -->
+                <ControlTemplate>
+                    <StackPanel>
+                        <!--  Display Validation Error Below the Control  -->
+                        <TextBlock
+                            HorizontalAlignment="Right"
+                            FontFamily="{DynamicResource AnonymusPro}"
+                            FontSize="{StaticResource Small_FontSize}"
+                            Foreground="Red"
+                            Text="{Binding ElementName=placeholder, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}" />
+
+                        <!--  Red Border Around TextBox  -->
+                        <Border BorderBrush="Red" BorderThickness="1">
+                            <StackPanel>
+                                <AdornedElementPlaceholder x:Name="placeholder" />
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
@@ -20,5 +43,12 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="true">
+                <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors)[0].ErrorContent}" />
+                <Setter Property="Tag" Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors)[0].ErrorContent}" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
 </ResourceDictionary>

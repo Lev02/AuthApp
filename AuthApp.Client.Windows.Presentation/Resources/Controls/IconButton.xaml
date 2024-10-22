@@ -18,25 +18,67 @@
 
         <materialIconsWPF:MaterialIcon
             Height="{StaticResource Normal_FontSize}"
-            Foreground="{DynamicResource PrimaryTextBrush}"
+            Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}}, Path=Foreground}"
             Kind="{Binding Icon, RelativeSource={RelativeSource AncestorType={x:Type local:IconButton}}}"
             Visibility="{Binding Icon, Converter={StaticResource ObjectToVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type local:IconButton}}}" />
 
-        <TextBlock
-            Grid.Column="1"
-            VerticalAlignment="Center"
-            Text="{Binding Text, FallbackValue='Some button text', RelativeSource={RelativeSource AncestorType={x:Type local:IconButton}}}"
-            Visibility="{Binding Text, Converter={StaticResource ObjectToVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type local:IconButton}}}">
-            <TextBlock.Style>
-                <Style BasedOn="{StaticResource DefaultTextBlockStyle}" TargetType="{x:Type TextBlock}">
-                    <Setter Property="Margin" Value="{StaticResource Left_Normal_Margin}" />
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding Icon, RelativeSource={RelativeSource AncestorType={x:Type local:IconButton}}}" Value="{x:Null}">
-                            <Setter Property="Margin" Value="0" />
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </TextBlock.Style>
-        </TextBlock>
+        <Grid Grid.Column="1">
+            <TextBlock
+                VerticalAlignment="Center"
+                Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}}, Path=Foreground}"
+                Text="{Binding Text, FallbackValue='Some button text', RelativeSource={RelativeSource AncestorType={x:Type local:IconButton}}}">
+                <TextBlock.Style>
+                    <Style BasedOn="{StaticResource DefaultTextBlockStyle}" TargetType="{x:Type TextBlock}">
+                        <Setter Property="Margin" Value="{StaticResource Left_Normal_Margin}" />
+                        <Setter Property="Visibility" Value="Visible" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Icon, RelativeSource={RelativeSource AncestorType={x:Type local:IconButton}}}" Value="{x:Null}">
+                                <Setter Property="Margin" Value="0" />
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding Text, RelativeSource={RelativeSource AncestorType={x:Type local:IconButton}}}" Value="{x:Null}">
+                                <Setter Property="Visibility" Value="Collapsed" />
+                            </DataTrigger>
+
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding AsyncRelayCommand.IsRunning, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType={x:Type local:IconButton}}}" Value="True" />
+                                    <Condition Binding="{Binding TextProgress, RelativeSource={RelativeSource AncestorType={x:Type local:IconButton}}, Converter={StaticResource IsNotNullConverter}}" Value="True" />
+                                </MultiDataTrigger.Conditions>
+
+                                <Setter Property="Visibility" Value="Collapsed" />
+                            </MultiDataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+
+            <TextBlock
+                VerticalAlignment="Center"
+                d:Visibility="Collapsed"
+                Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type Button}}, Path=Foreground}"
+                Text="{Binding TextProgress, FallbackValue='Some progress text', RelativeSource={RelativeSource AncestorType={x:Type local:IconButton}}}">
+                <TextBlock.Style>
+                    <Style BasedOn="{StaticResource DefaultTextBlockStyle}" TargetType="{x:Type TextBlock}">
+                        <Setter Property="Margin" Value="{StaticResource Left_Normal_Margin}" />
+                        <Setter Property="Visibility" Value="Collapsed" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Icon, RelativeSource={RelativeSource AncestorType={x:Type local:IconButton}}}" Value="{x:Null}">
+                                <Setter Property="Margin" Value="0" />
+                            </DataTrigger>
+
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding AsyncRelayCommand.IsRunning, UpdateSourceTrigger=PropertyChanged, RelativeSource={RelativeSource AncestorType={x:Type local:IconButton}}}" Value="True" />
+                                    <Condition Binding="{Binding TextProgress, RelativeSource={RelativeSource AncestorType={x:Type local:IconButton}}, Converter={StaticResource IsNotNullConverter}}" Value="True" />
+                                </MultiDataTrigger.Conditions>
+
+                                <Setter Property="Visibility" Value="Visible" />
+                            </MultiDataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </Grid>
     </Grid>
 </Button>
